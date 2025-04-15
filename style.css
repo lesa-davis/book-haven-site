@@ -1,0 +1,377 @@
+/* style.css for Book Haven Bookstore */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* HEADER ALIGNMENT */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+  background-color: #87CEEB;
+}
+
+.logo-left {
+  position: absolute;
+  left: 1rem;
+  height: 100px;
+}
+
+.header-center {
+  text-align: center;
+  color: #131C26;
+  width: 100%;
+}
+
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.promo-box {
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: #131C26;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.promo-box h3 {
+  margin-top: 0;
+}
+
+.promo-box ul {
+  list-style-type: square;
+  padding-left: 1.2rem;
+}
+
+/* Specific palette-based section colors */
+.highlights {
+  background-color: #98FB98; 
+}
+.promos {
+  background-color: #D988EA;
+}
+.perks {
+  background-color: #7FFFD4; /* Regal Quill */
+}
+.categories {
+  background-color: #AFEEEE; 
+}
+
+
+/* Base Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #87CEEB;
+  color: #131C26;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #131C26;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header, footer {
+  background-color: #AFEEEE;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background-color: #AFEEEE;
+}
+
+nav a {
+  font-weight: bold;
+}
+
+main {
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+/* Navigation Bar Layout */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #AFEEEE;
+  padding: 1rem 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-wrapper {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.view-cart-btn {
+  background-color: #D988EA;
+  color: #131C26;
+  border: none;
+  padding: 0.3rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Modal Window */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+#cartModal {
+  display: none;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #87CEEB;
+  padding: 2rem;
+  z-index: 1000;
+  border-radius: 10px;
+  color: #131C26;
+  width: 300px;
+  max-width: 90vw;
+}
+
+#closeCart {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #131C26;
+  cursor: pointer;
+}
+
+
+/* Forms */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 0.75rem;
+  border: 1px solid #131C26;
+  border-radius: 5px;
+  background-color: #87CEEB;
+  color: #131C26;
+}
+
+/*ADD TO CART BUTTONS */
+button, input[type="submit"] {
+  background-color: #AFEEEE;
+  color: #131C26;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #A9B7C6;
+}
+
+/* Gallery Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.gallery div {
+  text-align: center;
+}
+
+.gallery img {
+  width: 85%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  display: block;
+  margin: 0 auto 0.5rem auto;
+}
+
+/* Footer */
+footer {
+  padding: 2rem 1rem;
+  background-color: #87CEEB;
+  color: #131C26;
+}
+
+footer section {
+  margin-bottom: 1rem;
+}
+
+.footer-subscribe input[type="email"] {
+  max-width: 300px;
+  width: 100%;
+}
+
+.footer-links nav a {
+  margin: 0 0.25rem;
+}
+
+.footer-social a {
+  margin: 0 0.25rem;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+table, th, td {
+  border: 1px solid #131C26;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: #98FB98; 
+  padding: 1rem;
+  border-radius: 12px;
+  color: #131C26;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto 1rem;
+  border-radius: 8px;
+}
+
+.services-table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #87CEEB; /* Midnight Manuscript */
+  color: #131C26;
+  border: 5px solid #D988EA; /* Regal Quill */
+  border-radius: 15px;
+  font-size: 0.95rem;
+}
+
+.services-table th,
+.services-table td {
+  border: 2px solid #D988EA;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.services-table th {
+  background-color: #AFEEEE;
+}
+
+.services-table tr:nth-child(even) {
+  background-color: #AFEEEE; 
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  main {
+    padding: 1rem;
+  }
+  form {
+    padding: 0 1rem;
+  }
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0.5rem;
+  }
+
+  .logo-left {
+    height: 40px;
+    max-width: 80px;
+  }
+
+  .footer-icons img,
+  nav a img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.contact-forms {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form-block {
+  flex: 1 1 300px;
+  min-width: 280px;
+}

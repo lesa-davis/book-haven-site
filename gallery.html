@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Book Haven</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="images/logo2.jpg" alt="Book Haven Logo" class="logo-left" />
+    <div class="header-center">
+      <h1>Gallery</h1>
+      <p>Discover our featured books</p>
+        </div>
+      </div>
+    </header>
+
+  <nav class="nav-bar">
+    <div class="nav-wrapper">
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About Us</a>
+        <a href="events.html">Events</a>
+      </div>
+       </div>
+    <button id="viewCart" class="view-cart-btn">View Shopping Cart</button>
+  </nav>
+
+  <main>
+    <div class="flex-row">
+      <h2>Our Collection</h2>
+    </div>
+
+    <!-- Modal & Overlay -->
+    <div class="modal-overlay"></div>
+    <div id="cartModal">
+      <button id="closeCart">&times;</button>
+      <h3>Your Cart</h3>
+      <div id="cartList"></div>
+      <button onclick="clearCart()">Clear Cart</button>
+      <button onclick="processOrder()">Process Order</button>
+    </div>
+
+    <div class="gallery">
+      <div>
+        <img src="images/book1.png" alt="Book 1" />
+        <p><strong>Brie Mine 4Ever</strong><br />A book for cheese lovers.</p>
+        <button class="add-to-cart" data-title="Brie Mine 4Ever">Add to Cart</button>
+      </div>
+      <div>
+        <img src="images/book2.png" alt="Book 2" />
+        <p><strong>Glory Riders</strong><br />A book about bikers.</p>
+        <button class="add-to-cart" data-title="Glory Riders">Add to Cart</button>
+      </div>
+      <div>
+        <img src="images/book3.png" alt="Book 3" />
+        <p><strong>Sorcerer’s Shadowed Chronicles</strong><br />A fantasy book.</p>
+        <button class="add-to-cart" data-title="Sorcerer’s Shadowed Chronicles">Add to Cart</button>
+      </div>
+      <div>
+        <img src="images/book4.png" alt="Book 4" />
+        <p><strong>Ball</strong><br />A magazine about pickleball.</p>
+        <button class="add-to-cart" data-title="Ball">Add to Cart</button>
+      </div>
+      <div>
+        <img src="images/book5.png" alt="Book 5" />
+        <p><strong>Travel </strong><br />A magazine for travelers.</p>
+        <button class="add-to-cart" data-title="Travel ">Add to Cart</button>
+      </div>
+      <div>
+        <img src="images/book6.png" alt="Book 6" />
+        <p><strong>Eat</strong><br />A magazine for foodies.</p>
+        <button class="add-to-cart" data-title="Eat">Add to Cart</button>
+      </div>
+      <div>
+        <img src="images/book7.png" alt="Book 7" />
+        <p><strong>Notebook</strong><br />A notebook with text on the cover that says "Book Haven Bookstore."</p>
+        <button class="add-to-cart" data-title="Notebook">Add to Cart</button>
+      </div>
+      <div>
+        <img src="images/book8.png" alt="Book 8" />
+        <p><strong>Set of Four Stickers</strong><br />A set of four Book Haven Bookstore stickers that promote reading.</p>
+        <button class="add-to-cart" data-title="Set of Four Stickers">Add to Cart</button>
+      </div>
+      <div>
+        <img src="images/book9.png" alt="Book 9" />
+        <p><strong>Canvas Tote Bag</strong><br />A canvas tote bag with black lettering that says "ALL I DO IS READ READ READ."</p>
+        <button class="add-to-cart" data-title="Canvas Tote Bag">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <section>
+      <h2 style="text-align: center;">Items & Services We Offer</h2>
+      <table class="services-table">
+        <thead>
+          <tr>
+            <th>Item/Service</th>
+            <th>Description</th>
+            <th>Price Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fiction Books</td>
+            <td>Popular novels and literary works</td>
+            <td>$10 – $25</td>
+          </tr>
+          <tr>
+            <td>Children’s Books</td>
+            <td>Fun and educational stories for kids</td>
+            <td>$5 – $20</td>
+          </tr>
+          <tr>
+            <td>Stationery</td>
+            <td>Notebooks, journals, pens, and more</td>
+            <td>$2 – $15</td>
+          </tr>
+          <tr>
+            <td>Custom Orders</td>
+            <td>Special request books and gifts</td>
+            <td>Varies</td>
+          </tr>
+          <tr>
+            <td>Book Events</td>
+            <td>Author talks, clubs, and readings</td>
+            <td>Free – $10</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  <footer>
+    <section class="footer-subscribe">
+      <h4>Subscribe to our Newsletter</h4>
+      <center><form id="subscribeForm"></center>
+        <input type="email" id="subscriberEmail" placeholder="Enter your email" required />
+        <input type="submit" value="Subscribe" />
+      </form>
+    </section>
+
+    <section class="footer-links">
+      <h4>Quick Links</h4>
+      <nav>
+        <a href="index.html">Home</a> |
+        <a href="gallery.html">Gallery</a> |
+        <a href="about.html">About</a> |
+        <a href="events.html">Events</a> |
+      </nav>
+    </section>
+
+    <section class="footer-social">
+      <h4>Follow Us</h4>
+      <p>
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Twitter</a>
+      </p>
+    </section>
+
+    <p style="margin-top: 1rem;">&copy; 2025 Book Haven. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
