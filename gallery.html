@@ -10,32 +10,26 @@
 </head>
 <body>
   <header class="site-header">
-    <img src="images/logo2.jpg" alt="Book Haven Logo" class="logo-left" />
+    <div class="logo-box"></div>
     <div class="header-center">
       <h1>Gallery</h1>
       <p>Discover our featured books</p>
-        </div>
-      </div>
-    </header>
+    </div>
+  </header>
 
-  <nav class="nav-bar">
-    <div class="nav-wrapper">
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="about.html">About Us</a>
-        <a href="events.html">Events</a>
-      </div>
-       </div>
-    <button id="viewCart" class="view-cart-btn">View Shopping Cart</button>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About Us</a>
+    <a href="events.html">Events</a>
   </nav>
 
   <main>
-    <div class="flex-row">
-      <h2>Our Collection</h2>
-    </div>
+    <section class="flex-row">
+      <h2 style="text-align:center;">Our Collection</h2>
+    </section>
 
-    <!-- Modal & Overlay -->
+    <!-- Modal and Overlay for Cart -->
     <div class="modal-overlay"></div>
     <div id="cartModal">
       <button id="closeCart">&times;</button>
@@ -45,6 +39,7 @@
       <button onclick="processOrder()">Process Order</button>
     </div>
 
+    <!-- Gallery Grid -->
     <div class="gallery">
       <div>
         <img src="images/book1.png" alt="Book 1" />
@@ -68,8 +63,8 @@
       </div>
       <div>
         <img src="images/book5.png" alt="Book 5" />
-        <p><strong>Travel </strong><br />A magazine for travelers.</p>
-        <button class="add-to-cart" data-title="Travel ">Add to Cart</button>
+        <p><strong>Travel</strong><br />A magazine for travelers.</p>
+        <button class="add-to-cart" data-title="Travel">Add to Cart</button>
       </div>
       <div>
         <img src="images/book6.png" alt="Book 6" />
@@ -94,50 +89,10 @@
     </div>
   </main>
 
-  <section>
-      <h2 style="text-align: center;">Items & Services We Offer</h2>
-      <table class="services-table">
-        <thead>
-          <tr>
-            <th>Item/Service</th>
-            <th>Description</th>
-            <th>Price Range</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Fiction Books</td>
-            <td>Popular novels and literary works</td>
-            <td>$10 – $25</td>
-          </tr>
-          <tr>
-            <td>Children’s Books</td>
-            <td>Fun and educational stories for kids</td>
-            <td>$5 – $20</td>
-          </tr>
-          <tr>
-            <td>Stationery</td>
-            <td>Notebooks, journals, pens, and more</td>
-            <td>$2 – $15</td>
-          </tr>
-          <tr>
-            <td>Custom Orders</td>
-            <td>Special request books and gifts</td>
-            <td>Varies</td>
-          </tr>
-          <tr>
-            <td>Book Events</td>
-            <td>Author talks, clubs, and readings</td>
-            <td>Free – $10</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
   <footer>
     <section class="footer-subscribe">
       <h4>Subscribe to our Newsletter</h4>
-      <center><form id="subscribeForm"></center>
+      <form id="subscribeForm">
         <input type="email" id="subscriberEmail" placeholder="Enter your email" required />
         <input type="submit" value="Subscribe" />
       </form>
@@ -165,6 +120,6 @@
     <p style="margin-top: 1rem;">&copy; 2025 Book Haven. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="updated_script_full_cart_fix.js"></script>
 </body>
 </html>
