@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
           notes: notesInput?.value || ''
         };
         localStorage.setItem('customOrder', JSON.stringify(orderDetails));
-        alert(`Thank you, ${orderDetails.name}! We've received your request for "${orderDetails.title} and will be in touch soon".`);
+        alert(`Thank you, ${orderDetails.name}! We've received your request for "${orderDetails.title}" and will be in touch soon.`);
         confirmation.innerHTML = `<p>Thank you, ${orderDetails.name}! We've received your request for <strong>${orderDetails.title} and will be in touch soon.</strong>.</p>`;
         customOrderForm.reset();
       }
