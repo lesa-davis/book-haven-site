@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Subscribe Form using localStorage
+  // Subscribe Form (Newsletter) using localStorage
   const subscribeForm = document.getElementById('subscribeForm');
   const subscriberEmail = document.getElementById('subscriberEmail');
   if (subscribeForm && subscriberEmail) {
@@ -15,20 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-// Add to Cart buttons
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-if (addToCartButtons.length > 0) {
-  addToCartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const bookTitle = button.getAttribute('data-title');
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(bookTitle);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(`"${bookTitle}" has been added to your cart. Please proceed to checkout.`);
+  // Add to Cart buttons (with specific item alert)
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+  if (addToCartButtons.length > 0) {
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const bookTitle = button.getAttribute('data-title');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(bookTitle);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`"${bookTitle}" has been added to your cart. Please proceed to checkout.`);
+      });
     });
-  });
-}
-
+  }
 
   // View Cart button to open modal
   const viewCartBtn = document.getElementById('viewCart');
@@ -53,7 +52,7 @@ if (addToCartButtons.length > 0) {
     });
   }
 
-  // Cart Page View
+  // Cart Page View (if on Cart page)
   const cartItemsContainer = document.getElementById('cartItems');
   if (cartItemsContainer) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -64,30 +63,30 @@ if (addToCartButtons.length > 0) {
          <button onclick="processOrder()">Process Order</button>`;
   }
 
-// Feedback Form
-const feedbackForm = document.getElementById('feedbackForm');
-const feedbackName = document.getElementById('feedbackName');
-const feedbackEmail = document.getElementById('feedbackEmail');
-const feedbackText = document.getElementById('feedbackText');
+  // Feedback Form saving to localStorage
+  const feedbackForm = document.getElementById('feedbackForm');
+  const feedbackName = document.getElementById('feedbackName');
+  const feedbackEmail = document.getElementById('feedbackEmail');
+  const feedbackText = document.getElementById('feedbackText');
 
-if (feedbackForm && feedbackName && feedbackEmail && feedbackText) {
-  feedbackForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+  if (feedbackForm && feedbackName && feedbackEmail && feedbackText) {
+    feedbackForm.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-    const feedbackDetails = {
-      name: feedbackName.value,
-      email: feedbackEmail.value,
-      message: feedbackText.value
-    };
+      const feedbackDetails = {
+        name: feedbackName.value,
+        email: feedbackEmail.value,
+        message: feedbackText.value
+      };
 
-    localStorage.setItem('feedback', JSON.stringify(feedbackDetails));
+      localStorage.setItem('feedback', JSON.stringify(feedbackDetails));
 
-    alert(`Thanks for your feedback, ${feedbackDetails.name}!`);
-    feedbackForm.reset();
-  });
-}
+      alert(`Thanks for your feedback, ${feedbackDetails.name}!`);
+      feedbackForm.reset();
+    });
+  }
 
-  // Custom Order Form using localStorage
+  // Custom Order Form saving to localStorage
   const customOrderForm = document.getElementById('customOrderForm');
   if (customOrderForm) {
     customOrderForm.addEventListener('submit', (e) => {
@@ -111,7 +110,7 @@ if (feedbackForm && feedbackName && feedbackEmail && feedbackText) {
     });
   }
 
-  // Collaboration Form
+  // Collaboration Form (no storage, just alert)
   const collabForm = document.getElementById('collabForm');
   if (collabForm) {
     collabForm.addEventListener('submit', (e) => {
@@ -125,12 +124,14 @@ if (feedbackForm && feedbackName && feedbackEmail && feedbackText) {
   }
 });
 
+// Clear Cart Function
 function clearCart() {
   localStorage.removeItem('cart');
   alert("Cart cleared.");
   location.reload();
 }
 
+// Process Order Function
 function processOrder() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   localStorage.setItem('lastOrder', JSON.stringify(cart));
