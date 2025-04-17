@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Subscribe Form
+  // Subscribe Form using localStorage
   const subscribeForm = document.getElementById('subscribeForm');
   const subscriberEmail = document.getElementById('subscriberEmail');
   if (subscribeForm && subscriberEmail) {
-    const savedEmail = sessionStorage.getItem('subscriberEmail');
+    const savedEmail = localStorage.getItem('subscriberEmail');
     if (savedEmail) subscriberEmail.value = savedEmail;
 
     subscribeForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const email = subscriberEmail.value;
-      sessionStorage.setItem('subscriberEmail', email);
+      localStorage.setItem('subscriberEmail', email);
       alert(`Thank you for subscribing, ${email}!`);
       subscribeForm.reset();
     });
@@ -75,7 +75,7 @@ if (addToCartButtons.length > 0) {
     });
   }
 
-  // Custom Order Form
+  // Custom Order Form using localStorage
   const customOrderForm = document.getElementById('customOrderForm');
   if (customOrderForm) {
     customOrderForm.addEventListener('submit', (e) => {
@@ -92,7 +92,7 @@ if (addToCartButtons.length > 0) {
           genre: genreInput?.value || '',
           notes: notesInput?.value || ''
         };
-        sessionStorage.setItem('customOrder', JSON.stringify(orderDetails));
+        localStorage.setItem('customOrder', JSON.stringify(orderDetails));
         confirmation.innerHTML = `<p>Thank you, ${orderDetails.name}! We've received your request for <strong>${orderDetails.title}</strong>.</p>`;
         customOrderForm.reset();
       }
@@ -120,11 +120,9 @@ function clearCart() {
 }
 
 function processOrder() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  localStorage.setItem('lastOrder', JSON.stringify(cart));
   alert("Thank you for your order.");
   localStorage.removeItem('cart');
   location.reload();
 }
-
-window.addEventListener('beforeunload', () => {
-  sessionStorage.clear();
-});
