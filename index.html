@@ -10,7 +10,7 @@
 </head>
 <body>
   <header class="site-header">
-    <img src="images/logo1.jpg" alt="Book Haven Logo" class="logo-left" />
+    <div class="logo-box"></div>
     <div class="header-center">
       <h1>Book Haven</h1>
       <p>Your Neighborhood Bookstore!</p>
@@ -26,8 +26,8 @@
 
   <main>
     <section>
-      <h2><center>Welcome to Book Haven!</center></h2>
-      <p><center>Explore a world of stories and imagination. From bestsellers to indie gems, we have something for everyone.</center></p>
+      <h2 style="text-align:center;">Welcome to Book Haven!</h2>
+      <p style="text-align:center;">Explore a world of stories and imagination. From bestsellers to indie gems, we have something for everyone.</p>
     </section>
 
     <section class="promo-grid">
@@ -70,33 +70,30 @@
         </ul>
       </div>
     </section>
-  </main>
 
-  <hr style="margin: 1rem 0; border-color: #C1CFD6;" />
-
-  <section>
-    <h2 style="text-align: center;">Featured Products</h2>
-  <div class="card-grid">
-  <div class="card">
-    <center><img src="images/book1.png" alt="Book 1" style="max-width: 400px;" />
-    <p><strong>Brie Mine 4Ever</strong><br />A book for cheese lovers.</p>
-  </div>
-  <div class="card">
-        <center><img src="images/book3.png" alt="Book 3" style="max-width: 400px;" />
-        <p><strong>Sorcerer’s Shadowed Chronicles</strong><br />A fantasy book.</p>
-      </div>
-  <div class="card">
-          <center><img src="images/book6.png" alt="Book 6" style="max-width: 400px;" />
+    <section>
+      <h2 style="text-align: center;">Featured Products</h2>
+      <div class="card-grid">
+        <div class="card">
+          <img src="images/book1.png" alt="Book 1" style="max-width: 400px;" />
+          <p><strong>Brie Mine 4Ever</strong><br />A book for cheese lovers.</p>
+        </div>
+        <div class="card">
+          <img src="images/book3.png" alt="Book 3" style="max-width: 400px;" />
+          <p><strong>Sorcerer’s Shadowed Chronicles</strong><br />A fantasy book.</p>
+        </div>
+        <div class="card">
+          <img src="images/book6.png" alt="Book 6" style="max-width: 400px;" />
           <p><strong>Eat</strong><br />A magazine for foodies.</p>
-  </div>
-  </div>
-  </section>
-
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <section class="footer-subscribe">
       <h4>Subscribe to our Newsletter</h4>
-      <center><form id="subscribeForm"></center>
+      <form id="subscribeForm">
         <input type="email" id="subscriberEmail" placeholder="Enter your email" required />
         <input type="submit" value="Subscribe" />
       </form>
@@ -124,6 +121,6 @@
     <p style="margin-top: 1rem;">&copy; 2025 Book Haven. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="updated_script_localstorage.js"></script>
 </body>
 </html>
