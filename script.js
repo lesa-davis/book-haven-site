@@ -15,19 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Add to Cart buttons
-  const addToCartButtons = document.querySelectorAll('.add-to-cart');
-  if (addToCartButtons.length > 0) {
-    addToCartButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const bookTitle = button.getAttribute('data-title');
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(bookTitle);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        alert("Item has been added. Please proceed to checkout.");
-      });
+// Add to Cart buttons
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+if (addToCartButtons.length > 0) {
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const bookTitle = button.getAttribute('data-title');
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(bookTitle);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`"${bookTitle}" has been added to your cart. Please proceed to checkout.`);
     });
-  }
+  });
+}
+
 
   // View Cart button to open modal
   const viewCartBtn = document.getElementById('viewCart');
