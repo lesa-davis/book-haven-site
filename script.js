@@ -67,13 +67,22 @@ if (addToCartButtons.length > 0) {
 // Feedback Form
 const feedbackForm = document.getElementById('feedbackForm');
 const feedbackName = document.getElementById('feedbackName');
+const feedbackEmail = document.getElementById('feedbackEmail');
 const feedbackText = document.getElementById('feedbackText');
 
-if (feedbackForm && feedbackName && feedbackText) {
+if (feedbackForm && feedbackName && feedbackEmail && feedbackText) {
   feedbackForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const userName = feedbackName.value;
-    alert(`Thanks for your feedback, ${userName}!`);
+
+    const feedbackDetails = {
+      name: feedbackName.value,
+      email: feedbackEmail.value,
+      message: feedbackText.value
+    };
+
+    localStorage.setItem('feedback', JSON.stringify(feedbackDetails));
+
+    alert(`Thanks for your feedback, ${feedbackDetails.name}!`);
     feedbackForm.reset();
   });
 }
