@@ -144,8 +144,16 @@ function clearCart() {
 // Process Order Function
 function processOrder() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Save final order before clearing
   localStorage.setItem('lastOrder', JSON.stringify(cart));
+  sessionStorage.setItem('lastOrder', JSON.stringify(cart));
+
   alert("Thank you for your order.");
+
+  // Clear cart from both localStorage and sessionStorage
   localStorage.removeItem('cart');
+  sessionStorage.removeItem('cart');
+
   location.reload();
 }
