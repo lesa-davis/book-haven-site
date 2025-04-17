@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Subscribe Form (Newsletter) using localStorage
+  // Subscribe Form using localStorage
   const subscribeForm = document.getElementById('subscribeForm');
   const subscriberEmail = document.getElementById('subscriberEmail');
   if (subscribeForm && subscriberEmail) {
@@ -15,28 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-// Add to Cart buttons
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-if (addToCartButtons.length > 0) {
-  addToCartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const bookTitle = button.getAttribute('data-title');
+  // Add to Cart buttons (save to localStorage and sessionStorage)
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+  if (addToCartButtons.length > 0) {
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const bookTitle = button.getAttribute('data-title');
 
-      // Update localStorage
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(bookTitle);
-      localStorage.setItem('cart', JSON.stringify(cart));
+        // Update localStorage cart
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(bookTitle);
+        localStorage.setItem('cart', JSON.stringify(cart));
 
-      // Update sessionStorage
-      let sessionCart = JSON.parse(sessionStorage.getItem('cart')) || [];
-      sessionCart.push(bookTitle);
-      sessionStorage.setItem('cart', JSON.stringify(sessionCart));
+        // Update sessionStorage cart
+        let sessionCart = JSON.parse(sessionStorage.getItem('cart')) || [];
+        sessionCart.push(bookTitle);
+        sessionStorage.setItem('cart', JSON.stringify(sessionCart));
 
-      alert(`"${bookTitle}" has been added to your cart. Please proceed to checkout.`);
+        alert(`"${bookTitle}" has been added to your cart. Please proceed to checkout.`);
+      });
     });
-  });
-}
-
+  }
 
   // View Cart button to open modal
   const viewCartBtn = document.getElementById('viewCart');
@@ -100,11 +99,13 @@ if (addToCartButtons.length > 0) {
   if (customOrderForm) {
     customOrderForm.addEventListener('submit', (e) => {
       e.preventDefault();
+
       const nameInput = document.getElementById('customerName');
       const titleInput = document.getElementById('bookTitle');
       const genreInput = document.getElementById('genre');
       const notesInput = document.getElementById('notes');
       const confirmation = document.getElementById('orderConfirmation');
+
       if (nameInput && titleInput && confirmation) {
         const orderDetails = {
           name: nameInput.value,
@@ -112,15 +113,18 @@ if (addToCartButtons.length > 0) {
           genre: genreInput?.value || '',
           notes: notesInput?.value || ''
         };
+
         localStorage.setItem('customOrder', JSON.stringify(orderDetails));
-        alert(`Thank you, ${orderDetails.name}! We've received your request for "${orderDetails.title}" and will be in touch soon.`);
-        confirmation.innerHTML = `<p>Thank you, ${orderDetails.name}! We've received your request for <strong>${orderDetails.title} and will be in touch soon.</strong>.</p>`;
+
+        alert(`Thank you, ${orderDetails.name}! We've received your request for "${orderDetails.title}".`);
+
+        confirmation.innerHTML = `<p>Thank you, ${orderDetails.name}! We've received your request for <strong>${orderDetails.title}</strong>.</p>`;
         customOrderForm.reset();
       }
     });
   }
 
-  // Collaboration Form (no storage, just alert)
+  // Collaboration Form (alert only)
   const collabForm = document.getElementById('collabForm');
   if (collabForm) {
     collabForm.addEventListener('submit', (e) => {
@@ -134,24 +138,23 @@ if (addToCartButtons.length > 0) {
   }
 });
 
-// Clear Cart Function
+// Clear Cart Function (clear both storages)
 function clearCart() {
   localStorage.removeItem('cart');
+  sessionStorage.removeItem('cart');
   alert("Cart cleared.");
   location.reload();
 }
 
-// Process Order Function
+// Process Order Function (save lastOrder, clear cart from both)
 function processOrder() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  // Save final order before clearing
   localStorage.setItem('lastOrder', JSON.stringify(cart));
   sessionStorage.setItem('lastOrder', JSON.stringify(cart));
 
   alert("Thank you for your order.");
 
-  // Clear cart from both localStorage and sessionStorage
   localStorage.removeItem('cart');
   sessionStorage.removeItem('cart');
 
