@@ -16,26 +16,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Add to Cart buttons (save to localStorage and sessionStorage)
-  const addToCartButtons = document.querySelectorAll('.add-to-cart');
-  if (addToCartButtons.length > 0) {
-    addToCartButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const bookTitle = button.getAttribute('data-title');
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+if (addToCartButtons.length > 0) {
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const bookTitle = button.getAttribute('data-title');
 
-        // Update localStorage cart
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(bookTitle);
-        localStorage.setItem('cart', JSON.stringify(cart));
+      // Save to localStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(bookTitle);
+      localStorage.setItem('cart', JSON.stringify(cart));
 
-        // Update sessionStorage cart
-        let sessionCart = JSON.parse(sessionStorage.getItem('cart')) || [];
-        sessionCart.push(bookTitle);
-        sessionStorage.setItem('cart', JSON.stringify(sessionCart));
+      // Save to sessionStorage
+      let sessionCart = JSON.parse(sessionStorage.getItem('cart')) || [];
+      sessionCart.push(bookTitle);
+      sessionStorage.setItem('cart', JSON.stringify(sessionCart));
 
-        alert(`"${bookTitle}" has been added to your cart. Please proceed to checkout.`);
-      });
+      alert(`"${bookTitle}" has been added to your cart. Please proceed to checkout.`);
     });
-  }
+  });
+}
+
 
   // View Cart button to open modal
   const viewCartBtn = document.getElementById('viewCart');
