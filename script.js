@@ -64,16 +64,19 @@ if (addToCartButtons.length > 0) {
          <button onclick="processOrder()">Process Order</button>`;
   }
 
-  // Feedback Form
-  const feedbackForm = document.getElementById('feedbackForm');
-  const feedbackText = document.getElementById('feedbackText');
-  if (feedbackForm && feedbackText) {
-    feedbackForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Thanks for your feedback!');
-      feedbackForm.reset();
-    });
-  }
+// Feedback Form
+const feedbackForm = document.getElementById('feedbackForm');
+const feedbackName = document.getElementById('feedbackName');
+const feedbackText = document.getElementById('feedbackText');
+
+if (feedbackForm && feedbackName && feedbackText) {
+  feedbackForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const userName = feedbackName.value;
+    alert(`Thanks for your feedback, ${userName}!`);
+    feedbackForm.reset();
+  });
+}
 
   // Custom Order Form using localStorage
   const customOrderForm = document.getElementById('customOrderForm');
